@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Coffee Order</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <style>
+    body {
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: #A5B68D;
+    margin: 20px;
+  }
+  
+  h1 {
+    font-family:Georgia;
+    font-size:32px;
+    font-style: italic;
+    text-align: center;
+    color: #410445;
+    padding-top:25px;
+  }
+
+  h2{
+    font-family:Georgia;
+    font-size:32px;
+    font-style:oblique;
+    text-align: Center;
+    color:#410445;
+    padding:250px;
+  }
+  
+  form {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #AC1754;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  label {
+    font-family: Gill Sans;
+    font-size: 24px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #410445
+  }
+
+  select,
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-family: Geneva;
+    font-size: 16px;
+  }
+  
+  input[type="submit"] {
+    background-color: #4F959D;
+    color: black;
+    font-size: medium;
+    padding: 15px;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-family: Cambria;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: italic;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #366166
+  }
+  </style>
+<link rel="stylesheet" href="styles.css">
+  <div id="orderForm">  <!-- Added a container div -->
+    <h1>Place Your Coffee Order</h1>
+    <form id="coffeeForm" method="POST" action="/">
+    
+      <label for="drink">Drink:</label>
+      <select id="drink" name="drink">
+        <option value="Latte">Latte</option>
+        <option value="Cappuccino">Cappuccino</option>
+        <option value="Americano">Americano</option>
+        <option value="Espresso">Espresso</option>
+        <!-- Add more drinks here -->
+      </select><br><br>
+    
+      <label for="milk">Milk:</label>
+      <select id="milk" name="milk">
+        <option value="Whole">Whole</option>
+        <option value="2%">2%</option>
+        <option value="Oat">Oat</option>
+        <option value="Almond">Almond</option>
+        <option value="None">None</option>
+      </select><br><br>
+
+      <label for="size">Size:</label>
+      <select id="size" name="size">
+          <option value="Small">Small</option>
+          <option value="Medium">Medium</option>
+          <option value="Large">Large</option>
+      </select><br><br>
+
+
+      <label for="sweetener">Sweetener:</label>
+      <select id="sweetener" name="sweetener">
+          <option value="None">None</option>
+          <option value="Sugar">Sugar</option>
+          <option value="Vanilla">Vanilla</option>
+      </select><br><br>
+
+      <input type="submit" value="Submit Order">
+    </form>
+  </div>
+
+  <div id="confirmationMessage" style="display: none;"> <!-- Initially hidden -->
+    <h2>Your order is confirmed! Please wait.</h2>
+  </div>
+  <script>
+    const form = document.getElementById('coffeeForm');
+    const confirmation = document.getElementById('confirmationMessage');
+    const orderForm = document.getElementById('orderForm'); // get orderForm
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault(); // Prevent default form submission
+        orderForm.style.display = 'none'; //hide the form
+        confirmation.style.display = 'block'; // show confirmation message
+
+        //Here you would typically send the form data to the server using fetch or AJAX.
+        //For simplicity in this example, it just shows the confirmation message
+
+      });
+  </script>
+
+</body>
+</html>
